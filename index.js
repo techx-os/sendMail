@@ -88,12 +88,13 @@ app.post("/sendmail", (req, res) => {
         res.status(500).send({ message: error });
       } else {
         console.log("Email sent: " + info.response);
+         res.status(200).send({ message: "Email sent successfully",res:info.response });
       }
     });
   } catch (e) {
     console.log(e);
   }
-  res.status(200).send({ message: "Email sent successfully" });
+ 
 });
 const port = process.env.PORT || 5000;
 
